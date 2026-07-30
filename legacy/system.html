@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>System</title>
+    <link rel="stylesheet" href="css/display.css">
+</head>
+<body data-page="system" data-update-interval="3000">
+<div class="page">
+    <div class="header"><div class="header-inner">SYSTEM <a class="back-link" href="index.html">MENÜ</a></div></div>
+    <div class="content"><div class="content-inner">
+        <table class="grid">
+            <tr>
+                <td><span class="metric-label">AUSSEN</span><span class="metric-value" data-avnav-value="outsideTemp">--,-</span><span class="metric-unit">°C</span></td>
+                <td><span class="metric-label">LUFTDRUCK</span><span class="metric-value" data-avnav-value="pressure">--,-</span><span class="metric-unit">hPa</span></td>
+            </tr>
+            <tr>
+                <td><span class="metric-label">CPU</span><span class="metric-value" data-avnav-value="cpuTemp">--,-</span><span class="metric-unit">°C</span></td>
+                <td><span class="metric-label">SPEICHER / SD</span><span class="metric-value" data-avnav-value="memory">--</span><span class="metric-unit">% / </span><span class="metric-value" data-avnav-value="sd">--</span><span class="metric-unit">%</span></td>
+            </tr>
+            <tr>
+                <td><span class="metric-label">BATTERIE</span><span class="metric-value" data-avnav-value="voltage">--,--</span><span class="metric-unit">V</span></td>
+                <td><span class="metric-label">STROM</span><span class="metric-value" data-avnav-value="current">--,--</span><span class="metric-unit">A</span></td>
+            </tr>
+        </table>
+    </div></div>
+    <div class="footer"><div id="connection-state" class="footer-inner">VERBINDUNG WIRD HERGESTELLT</div></div>
+</div>
+<script src="js/avnav-data.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Fahrt</title>
+    <link rel="stylesheet" href="css/display.css">
+</head>
+<body data-page="navigation" data-update-interval="1000">
+<div class="page">
+    <div class="header"><div class="header-inner">FAHRT <a class="back-link" href="index.html">MENÜ</a></div></div>
+    <div class="content"><div class="content-inner">
+        <table class="grid">
+            <tr>
+                <td><span class="metric-label">KURS</span><span class="metric-value" data-avnav-value="track">---</span><span class="metric-unit">°</span></td>
+                <td><span class="metric-label">GESCHWINDIGKEIT</span><span class="metric-value" data-avnav-value="speed">--,-</span><span class="metric-unit">kn</span></td>
+            </tr>
+            <tr>
+                <td><span class="metric-label">TIEFE</span><span class="metric-value" data-avnav-value="depth">--,-</span><span class="metric-unit">m</span></td>
+                <td><span class="metric-label">SATELLITEN</span><span class="metric-value" data-avnav-value="satellites">--</span></td>
+            </tr>
+        </table>
+    </div></div>
+    <div class="footer"><div id="connection-state" class="footer-inner">VERBINDUNG WIRD HERGESTELLT</div></div>
+</div>
+<script src="js/avnav-data.js"></script>
+</body>
+</html>
