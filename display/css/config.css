@@ -1,3 +1,63 @@
-html,body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif}*{box-sizing:border-box}body{padding:12px}.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:3px solid #000;padding-bottom:10px;margin-bottom:12px}.bar a,.bar button,button{background:#fff;color:#000;border:2px solid #000;padding:9px 12px;font-weight:bold;text-decoration:none}.mode{border:2px solid #000;padding:8px;font-weight:bold}.panel{border:3px solid #000;margin:12px 0;padding:10px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end;border-top:1px solid #000;padding:10px 0}.row:first-child{border-top:0}.field{display:flex;flex-direction:column;min-width:140px;flex:1}.field label{font-weight:bold;margin-bottom:4px}.field input,.field select{border:2px solid #000;background:#fff;color:#000;padding:8px;min-height:38px}.stale{font-style:italic}.unknown{font-weight:bold}.message{border:3px solid #000;padding:10px;margin:10px 0}.bad{background:#000;color:#fff}.value-list{max-height:320px;overflow:auto;border:2px solid #000;padding:8px}.catalog-item{padding:4px 0;border-bottom:1px solid #999}.smalltext{font-size:.9em}.dashboard-title{display:flex;justify-content:space-between;align-items:center;gap:8px}
+html,body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif}*{box-sizing:border-box}body{padding:12px}.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:3px solid #000;padding-bottom:10px;margin-bottom:12px}.bar a,.bar button,button{background:#fff;color:#000;border:2px solid #000;padding:9px 12px;font-weight:bold;text-decoration:none}.mode{border:0;padding:8px 0;font-weight:bold}.panel{border:3px solid #000;margin:12px 0;padding:10px}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:end;border-top:1px solid #000;padding:10px 0}.row:first-child{border-top:0}.field{display:flex;flex-direction:column;min-width:140px;flex:1}.field label{font-weight:bold;margin-bottom:4px}.field input,.field select{border:2px solid #000;background:#fff;color:#000;padding:8px;min-height:38px}.stale{font-style:italic}.unknown{font-weight:bold}.message{border:3px solid #000;padding:10px;margin:10px 0}.bad{background:#000;color:#fff}.value-list{max-height:320px;overflow:auto;border:2px solid #000;padding:8px}.catalog-item{padding:4px 0;border-bottom:1px solid #999}.smalltext{font-size:.9em}.dashboard-title{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .brand{text-align:center;margin:0 0 12px 0}
 .brand img{display:block;width:100%;max-width:520px;height:auto;margin:0 auto}
+
+.bar-logo{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+}
+
+.bar-logo img{
+    display:block;
+    height:42px;
+    width:auto;
+    max-width:160px;
+}
+
+.config-head{
+  display:flex;
+  align-items:stretch;
+  gap:12px;
+}
+
+.config-head-main{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.config-head-logo{
+  flex:0 0 290px;
+  width:290px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px;
+}
+
+.config-head-logo img{
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:100%;
+  margin:auto;
+}
+
+@media screen and (max-width:900px){
+  .config-head-logo{
+    flex-basis:220px;
+    width:220px;
+  }
+}
+
+@media screen and (max-width:650px){
+  .config-head{
+    display:block;
+  }
+
+  .config-head-logo{
+    width:180px;
+    margin:8px auto 12px auto;
+    padding:0;
+  }
+}
