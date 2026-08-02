@@ -1,6 +1,6 @@
 (function(w){'use strict';
 var L=w.LegacyDisplay=w.LegacyDisplay||{};
-L.VERSION='0.4.1';
+L.VERSION='0.4.2';
 L.API_NEW='/api/decoder/gpsV2';L.API_OLD='/viewer/avnav_navi.php?request=gps';L.dataApi=null;
 L.now=function(){return new Date().getTime();};
 L.xhr=function(method,url,body,cb){var x=new XMLHttpRequest();x.onreadystatechange=function(){if(x.readyState===4)cb(x.status,x.responseText);};x.onerror=function(){cb(0,'');};x.ontimeout=function(){cb(0,'');};x.open(method,url,true);x.timeout=3000;if(method==='POST')x.setRequestHeader('Content-Type','application/x-www-form-urlencoded');x.send(body||null);};
