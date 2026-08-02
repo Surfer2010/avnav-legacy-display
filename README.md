@@ -1,31 +1,27 @@
-## AVNav Dashboard – Legacy Version
+# AVNav Legacy Display
 
-![AVNav Dashboard Legacy Version – dunkel/rot](docs/images/avnav-dashboard-legacy-dark-red.svg)
+<p align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="assets/logos/logo-dark-red.svg">
+    <img
+      src="assets/logos/logo-light-navy.svg"
+      alt="AVNav Dashboard Legacy Version"
+      width="720">
+  </picture>
+</p>
 
-Alternativ für helle Hintergründe:
+E-Ink-optimierte Dashboards für ältere Browser, Tolino, Kindle und AVNav.
 
-![AVNav Dashboard Legacy Version – weiß/dunkelblau](docs/images/avnav-dashboard-legacy-light-navy.svg)
+## Standardwerte
 
-Das Legacy-Plugin stellt ausgewählte AVNav-Navigationsdaten auf älteren oder leistungsschwächeren Displays in einer reduzierten, gut lesbaren Dashboard-Ansicht dar.
+Als nautisch sinnvolle Vorgabe verwendet das Plugin:
 
-### Vorgesehene Standardwerte
+| Anzeige | Bedeutung |
+|---|---|
+| **DBK** | Depth Below Keel – Tiefe unter dem Kiel |
+| **SOG** | Speed Over Ground – Geschwindigkeit über Grund |
 
-Für die nächste Plugin-Version sollen folgende Navigationswerte als Standard verwendet werden:
-
-| Anzeige | Bedeutung | Ersetzt |
-|---|---|---|
-| **DBK** | Depth Below Keel – Tiefe unter dem Kiel | DBT – Depth Below Transducer |
-| **SOG** | Speed Over Ground – Geschwindigkeit über Grund | STW – Speed Through Water |
-
-Die Änderung betrifft sowohl die voreingestellte Dashboard-Konfiguration als auch die Beschriftungen und Standardauswahl auf den Plugin-Seiten.
-
-### Geplante Version 0.4.0
-
-Für Version **0.4.0** sind derzeit vorgesehen:
-
-- neues Legacy-Plugin-Logo in dunkler und heller Variante
-- DBK als Standard-Tiefenwert
-- SOG als Standard-Geschwindigkeitswert
-- einheitliche Bezeichnungen in Dashboard, Einstellungen und Dokumentation
-
-Die Versionsnummer sollte erst nach Umsetzung und Prüfung der Plugin-Änderungen angehoben werden.
+DBK ersetzt als Standardwert DBT (Depth Below Transducer).  
+SOG ersetzt als Standardwert STW (Speed Through Water).

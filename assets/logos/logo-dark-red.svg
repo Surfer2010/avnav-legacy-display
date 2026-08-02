@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
+  <title id="title">AVNav Dashboard Legacy Version – dark red</title>
+  <desc id="desc">Retro marine dashboard logo with red graphics on a dark background and hidden initials D.H.</desc>
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .bg{fill:#060606}.frame{fill:none;stroke:#252525;stroke-width:34}.inner{fill:none;stroke:#3a3a3a;stroke-width:5}
+      .ink{fill:#ef2b2d;stroke:#ef2b2d}.line{fill:none;stroke:#ef2b2d;stroke-width:8;stroke-linecap:square;stroke-linejoin:miter}
+      .thin{fill:none;stroke:#ef2b2d;stroke-width:5}.grid{fill:none;stroke:#ef2b2d;stroke-width:2;opacity:.5}
+      .txt{fill:#ef2b2d;font-family:"DejaVu Sans Mono",monospace;font-weight:700;letter-spacing:2px}
+      .small{font-size:48px}.value{font-size:82px}.header{font-size:64px}.hero{font-size:92px}.footer{font-size:38px;letter-spacing:6px}
+    </style>
+  </defs>
+  <rect class="bg" x="42" y="42" width="1116" height="1116" rx="118"/>
+  <rect class="frame" x="42" y="42" width="1116" height="1116" rx="118"/>
+  <rect class="inner" x="76" y="76" width="1048" height="1048" rx="92"/>
+  <g filter="url(#glow)">
+    <text class="txt header" x="600" y="160" text-anchor="middle">AVNav Dashboard</text>
+    <path class="line" d="M135 190H1065"/>
+    <text class="txt hero" x="600" y="290" text-anchor="middle">LEGACY VERSION</text>
+    <path class="line" d="M135 320H1065"/>
+
+    <path class="line" d="M530 340V1015"/>
+    <g>
+      <text class="txt small" x="150" y="395">SOG</text>
+      <text class="txt value" x="215" y="485">5.6</text><text class="txt small" x="430" y="485">kn</text>
+      <path class="thin" d="M140 515H505"/>
+      <text class="txt small" x="150" y="575">COG</text>
+      <text class="txt value" x="205" y="665">231°</text>
+      <path class="thin" d="M140 695H505"/>
+      <text class="txt small" x="150" y="755">TWS</text>
+      <text class="txt value" x="195" y="845">12.4</text><text class="txt small" x="425" y="845">kn</text>
+      <path class="thin" d="M140 875H505"/>
+      <text class="txt small" x="150" y="935">AWA</text>
+      <text class="txt value" x="255" y="1015">45°</text>
+    </g>
+
+    <g>
+      <circle class="line" cx="805" cy="575" r="225"/>
+      <text class="txt small" x="805" y="385" text-anchor="middle">N</text>
+      <text class="txt small" x="1004" y="590" text-anchor="middle">E</text>
+      <text class="txt small" x="805" y="785" text-anchor="middle">S</text>
+      <text class="txt small" x="605" y="590" text-anchor="middle">W</text>
+      <g class="thin">
+        <path d="M805 350v28M917 382l-14 24M998 463l-24 14M1030 575h-28M998 687l-24-14M917 768l-14-24M805 800v-28M693 768l14-24M612 687l24-14M580 575h28M612 463l24 14M693 382l14 24"/>
+      </g>
+      <!-- Sail and hidden initials: curved sail forms D, mast/boom and inner bar form H; dot is part of the compass tick system -->
+      <path class="line" d="M805 410V690H675Z"/>
+      <path class="line" d="M805 470C925 485 945 640 805 690"/>
+      <path class="line" d="M835 545V675M900 545V675M835 610H900"/>
+      <circle class="ink" cx="922" cy="681" r="7"/>
+      <path class="line" d="M655 705H955"/>
+    </g>
+
+    <g>
+      <rect class="thin" x="560" y="820" width="500" height="195"/>
+      <path class="grid" d="M560 860H1060M560 900H1060M560 940H1060M560 980H1060M620 820V1015M680 820V1015M740 820V1015M800 820V1015M860 820V1015M920 820V1015M980 820V1015"/>
+      <path class="line" d="M575 970L610 945L640 920L675 955L710 925L745 875L780 920L815 895L850 935L885 910L920 950L955 925L990 940L1025 900L1045 915"/>
+    </g>
+
+    <path class="thin" d="M145 1062H415M785 1062H1055"/>
+    <text class="txt footer" x="600" y="1075" text-anchor="middle">LEGACY DISPLAY</text>
+  </g>
+</svg>
