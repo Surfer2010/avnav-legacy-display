@@ -14,7 +14,8 @@
           "formatter": "depthAdaptive",
           "decimals": 1,
           "size": "hero",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "speed-anchor",
@@ -25,9 +26,11 @@
           "formatter": "number",
           "decimals": 1,
           "size": "medium",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         }
-      ]
+      ],
+      "valueScale": 1.0
     },
     "navigation": {
       "title": "Navigation",
@@ -42,7 +45,8 @@
           "formatter": "number",
           "decimals": 1,
           "size": "large",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "course-nav",
@@ -53,7 +57,8 @@
           "formatter": "course",
           "decimals": 0,
           "size": "large",
-          "maxChars": 3
+          "maxChars": 3,
+          "valueScale": 1.0
         },
         {
           "id": "depth-nav",
@@ -64,7 +69,8 @@
           "formatter": "depthAdaptive",
           "decimals": 1,
           "size": "large",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "sat-nav",
@@ -75,9 +81,11 @@
           "formatter": "number",
           "decimals": 0,
           "size": "medium",
-          "maxChars": 2
+          "maxChars": 2,
+          "valueScale": 1.0
         }
-      ]
+      ],
+      "valueScale": 1.0
     },
     "system": {
       "title": "System",
@@ -92,7 +100,8 @@
           "formatter": "kelvin",
           "decimals": 1,
           "size": "medium",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "pressure",
@@ -103,7 +112,8 @@
           "formatter": "pascalHpa",
           "decimals": 1,
           "size": "medium",
-          "maxChars": 6
+          "maxChars": 6,
+          "valueScale": 1.0
         },
         {
           "id": "temp-cpu",
@@ -114,7 +124,8 @@
           "formatter": "kelvin",
           "decimals": 1,
           "size": "medium",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "memory",
@@ -125,7 +136,8 @@
           "formatter": "percent",
           "decimals": 0,
           "size": "medium",
-          "maxChars": 3
+          "maxChars": 3,
+          "valueScale": 1.0
         },
         {
           "id": "battery",
@@ -136,7 +148,8 @@
           "formatter": "number",
           "decimals": 2,
           "size": "medium",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         },
         {
           "id": "current",
@@ -147,9 +160,11 @@
           "formatter": "number",
           "decimals": 2,
           "size": "medium",
-          "maxChars": 5
+          "maxChars": 5,
+          "valueScale": 1.0
         }
-      ]
+      ],
+      "valueScale": 1.0
     }
   },
   "catalog": {}
