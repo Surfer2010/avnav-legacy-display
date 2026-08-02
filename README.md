@@ -17,6 +17,9 @@ E-Ink-optimierte Dashboards für ältere Browser, Tolino, Kindle und AVNav.
 Beispiel - Anzeige:
 <img width="946" height="436" alt="grafik" src="https://github.com/user-attachments/assets/fcd47d06-95fa-4710-b02e-8f042d2d0a43" />
 
+Konfigurationsansicht:
+<img width="955" height="416" alt="grafik" src="https://github.com/user-attachments/assets/22f4ecf8-e7e7-427b-b277-152635d04de8" />
+
 
 **Aktuelle Version: 0.4.2**
 
