@@ -14,6 +14,10 @@
 
 E-Ink-optimierte Dashboards für ältere Browser, Tolino, Kindle und AVNav.
 
+Beispiel - Anzeige:
+<img width="946" height="436" alt="grafik" src="https://github.com/user-attachments/assets/fcd47d06-95fa-4710-b02e-8f042d2d0a43" />
+
+
 **Aktuelle Version: 0.4.2**
 
 Die Standardanzeigen verwenden **DBK** für die Tiefe unter dem Kiel und
