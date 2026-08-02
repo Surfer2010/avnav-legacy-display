@@ -1,5 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect x="8" y="8" width="112" height="112" rx="12" fill="white" stroke="black" stroke-width="8"/>
-  <path d="M24 86h80M32 72c10-18 20-18 30 0s20 18 34-10" fill="none" stroke="black" stroke-width="8"/>
-  <text x="64" y="46" text-anchor="middle" font-family="sans-serif" font-size="25" font-weight="bold">E-INK</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><rect width="128" height="128" fill="white"/><rect x="8" y="8" width="112" height="112" fill="none" stroke="black" stroke-width="8"/><text x="64" y="78" text-anchor="middle" font-family="sans-serif" font-size="48" font-weight="bold">LD</text></svg>

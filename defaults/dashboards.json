@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 3,
+  "dashboards": {
+    "anchor": {
+      "title": "Ankern",
+      "updateInterval": 500,
+      "items": [
+        {
+          "id": "depth-main",
+          "path": "depth",
+          "role": "depth",
+          "label": "TIEFE",
+          "unit": "m",
+          "formatter": "depthAdaptive",
+          "decimals": 1,
+          "size": "hero",
+          "maxChars": 5
+        },
+        {
+          "id": "speed-anchor",
+          "path": "speed",
+          "role": "speed",
+          "label": "GESCHWINDIGKEIT",
+          "unit": "kn",
+          "formatter": "number",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 5
+        }
+      ]
+    },
+    "navigation": {
+      "title": "Navigation",
+      "updateInterval": 1000,
+      "items": [
+        {
+          "id": "speed-nav",
+          "path": "speed",
+          "role": "speed",
+          "label": "GESCHWINDIGKEIT",
+          "unit": "kn",
+          "formatter": "number",
+          "decimals": 1,
+          "size": "large",
+          "maxChars": 5
+        },
+        {
+          "id": "course-nav",
+          "path": "track",
+          "role": "course",
+          "label": "KURS",
+          "unit": "°",
+          "formatter": "course",
+          "decimals": 0,
+          "size": "large",
+          "maxChars": 3
+        },
+        {
+          "id": "depth-nav",
+          "path": "depth",
+          "role": "depth",
+          "label": "TIEFE",
+          "unit": "m",
+          "formatter": "depthAdaptive",
+          "decimals": 1,
+          "size": "large",
+          "maxChars": 5
+        },
+        {
+          "id": "sat-nav",
+          "path": "satUsed",
+          "role": "generic",
+          "label": "SATELLITEN",
+          "unit": "",
+          "formatter": "number",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 2
+        }
+      ]
+    },
+    "system": {
+      "title": "System",
+      "updateInterval": 3000,
+      "items": [
+        {
+          "id": "temp-out",
+          "path": "transducers.TempAir",
+          "role": "temperature",
+          "label": "AUSSENTEMP.",
+          "unit": "°C",
+          "formatter": "kelvin",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 5
+        },
+        {
+          "id": "pressure",
+          "path": "transducers.Barometer",
+          "role": "pressure",
+          "label": "LUFTDRUCK",
+          "unit": "hPa",
+          "formatter": "pascalHpa",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 6
+        },
+        {
+          "id": "temp-cpu",
+          "path": "signalk.environment.rpi.cpu.temperature",
+          "role": "temperature",
+          "label": "CPU",
+          "unit": "°C",
+          "formatter": "kelvin",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 5
+        },
+        {
+          "id": "memory",
+          "path": "signalk.environment.rpi.memory.utilisation",
+          "role": "percent",
+          "label": "RAM",
+          "unit": "%",
+          "formatter": "percent",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 3
+        },
+        {
+          "id": "battery",
+          "path": "signalk.electrical.batteries.service.voltage",
+          "role": "voltage",
+          "label": "BATTERIE",
+          "unit": "V",
+          "formatter": "number",
+          "decimals": 2,
+          "size": "medium",
+          "maxChars": 5
+        },
+        {
+          "id": "current",
+          "path": "signalk.electrical.batteries.service.current",
+          "role": "current",
+          "label": "STROM",
+          "unit": "A",
+          "formatter": "number",
+          "decimals": 2,
+          "size": "medium",
+          "maxChars": 5
+        }
+      ]
+    }
+  },
+  "catalog": {}
+}
