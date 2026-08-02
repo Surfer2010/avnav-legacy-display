@@ -7,9 +7,9 @@
       "items": [
         {
           "id": "depth-main",
-          "path": "depth",
+          "path": "dbk",
           "role": "depth",
-          "label": "TIEFE",
+          "label": "DBK",
           "unit": "m",
           "formatter": "depthAdaptive",
           "decimals": 1,
@@ -18,9 +18,9 @@
         },
         {
           "id": "speed-anchor",
-          "path": "speed",
+          "path": "sog",
           "role": "speed",
-          "label": "GESCHWINDIGKEIT",
+          "label": "SOG",
           "unit": "kn",
           "formatter": "number",
           "decimals": 1,
@@ -35,9 +35,9 @@
       "items": [
         {
           "id": "speed-nav",
-          "path": "speed",
+          "path": "sog",
           "role": "speed",
-          "label": "GESCHWINDIGKEIT",
+          "label": "SOG",
           "unit": "kn",
           "formatter": "number",
           "decimals": 1,
@@ -57,9 +57,9 @@
         },
         {
           "id": "depth-nav",
-          "path": "depth",
+          "path": "dbk",
           "role": "depth",
-          "label": "TIEFE",
+          "label": "DBK",
           "unit": "m",
           "formatter": "depthAdaptive",
           "decimals": 1,

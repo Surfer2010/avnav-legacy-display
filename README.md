@@ -14,6 +14,11 @@
 
 E-Ink-optimierte Dashboards für ältere Browser, Tolino, Kindle und AVNav.
 
+**Aktuelle Version: 0.4.0**
+
+Die Standardanzeigen verwenden **DBK** für die Tiefe unter dem Kiel und
+**SOG** für die Geschwindigkeit über Grund.
+
 ## Standardwerte
 
 Als nautisch sinnvolle Vorgabe verwendet das Plugin:
