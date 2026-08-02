@@ -62,55 +62,49 @@ Typische Geräte sind unter anderem:
 - Kompatibel mit älteren und aktuellen AVNav-Versionen
 
 
-
-
-
-
-
-
-
-
-
-
-# AVNav Legacy Display
-
-<p align="center">
-  <picture>
-    <source
-      media="(prefers-color-scheme: dark)"
-      srcset="assets/logos/logo-dark-red.svg">
-    <img
-      src="assets/logos/logo-light-navy.svg"
-      alt="AVNav Dashboard Legacy Version"
-      width="720">
-  </picture>
-</p>
-
-E-Ink-optimierte Dashboards für ältere Browser, Tolino, Kindle und AVNav.
-
-
-
-**Aktuelle Version: 0.4.2**
-
-Die Standardanzeigen verwenden **DBK** für die Tiefe unter dem Kiel und
-**SOG** für die Geschwindigkeit über Grund.
-
 ## Standardwerte
 
-Als nautisch sinnvolle Vorgabe verwendet das Plugin:
+Beschreibung der standardmäßig verwendeten nautischen Datenquellen sowie deren Bedeutung (z. B. DBK und SOG).
 
-| Anzeige | Bedeutung |
-|---|---|
-| **DBK** | Depth Below Keel – Tiefe unter dem Kiel |
-| **SOG** | Speed Over Ground – Geschwindigkeit über Grund |
+---
 
-DBK ersetzt als Standardwert DBT (Depth Below Transducer).  
-SOG ersetzt als Standardwert STW (Speed Through Water).
+## Installation
 
-## Änderungen in Version 0.4.2
+Schritt-für-Schritt-Anleitung zur Installation des Plugins über die AVNav-Pluginverwaltung oder per ZIP-Datei.
 
-- Automatischer POST-zu-GET-Fallback beim Speichern der Konfiguration
-- Kompatible Server-Speicherung mit alten und neuen AVNav-Versionen
-- Keine feste Erkennung der AVNav-Version erforderlich
-- Logo auf der Konfigurationsseite
-- Kleines Logo unterhalb des Hinweises auf der Startseite
+---
+
+## Konfiguration
+
+Beschreibung der Konfigurationsoberfläche, der verfügbaren Dashboard-Seiten sowie der wichtigsten Einstellmöglichkeiten wie Datenquellen, Formatter, Kachelgrößen und Schriftgrößen.
+
+---
+
+## Technischer Hintergrund
+
+AVNav Legacy Display ist **kein Ersatz für die AVNav-Benutzeroberfläche** und versucht diese bewusst nicht nachzubilden.
+
+Stattdessen verfolgt das Plugin einen anderen Ansatz: Es stellt eine extrem schlanke, ressourcensparende und kompatible Anzeige bereit, die auch auf Browsern funktioniert, welche moderne Webtechnologien nur eingeschränkt oder gar nicht unterstützen.
+
+Die Oberfläche verwendet bewusst einfache HTML-, CSS- und JavaScript-Techniken und verzichtet weitgehend auf moderne Frameworks oder komplexe Browserfunktionen. Dadurch bleibt das Plugin auch auf älteren Geräten schnell, zuverlässig und gut lesbar.
+
+Zu den wichtigsten Eigenschaften gehören:
+
+- maximale Browser-Kompatibilität
+- geringer Speicher- und CPU-Bedarf
+- optimale Lesbarkeit auf E-Ink-Displays
+- große, kontrastreiche Vollbildanzeigen
+- lokale oder serverseitige Konfigurationsspeicherung
+- automatische Kompatibilität mit älteren und aktuellen AVNav-Versionen
+
+Diese bewusst einfache Architektur ist das zentrale Alleinstellungsmerkmal des Plugins und ermöglicht es, viele eigentlich ausgemusterte Geräte weiterhin sinnvoll als zusätzliche Navigationsanzeigen einzusetzen.
+
+---
+
+## Changelog
+
+Chronologische Übersicht aller Änderungen und Neuerungen der einzelnen Versionen.
+
+
+
+
