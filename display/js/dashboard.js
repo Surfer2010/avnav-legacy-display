@@ -204,24 +204,15 @@ function formatClockValue(value){
     var match;
     var date;
     var number;
+    var text;
 
     if(value===null||typeof value==='undefined'||value===''){
         return null;
     }
 
     /*
-     * Bereits formatierte Zeit, beispielsweise 14:23 oder 14:23:17.
-     */
-    if(typeof value==='string'){
-        match=value.match(/(?:T|^)([0-2][0-9]):([0-5][0-9])(?::[0-5][0-9])?/);
-
-        if(match){
-            return match[1]+':'+match[2];
-        }
-    }
-
-    /*
-     * Unix-Zeit in Sekunden oder Millisekunden.
+     * Numerischer Unix-Zeitstempel:
+     * Sekunden oder Millisekunden.
      */
     number=Number(value);
 
@@ -238,14 +229,48 @@ function formatClockValue(value){
         }
     }
 
-    /*
-     * ISO-Datum oder ein anderes von Date verstandenes Zeitformat.
-     */
-    date=new Date(value);
+    if(typeof value==='string'){
+        text=value.replace(/^\s+|\s+$/g,'');
 
-    if(!isNaN(date.getTime())){
-        return twoDigits(date.getHours())+':'+
-            twoDigits(date.getMinutes());
+        /*
+         * ISO-/UTC-Zeit zuerst als Date interpretieren.
+         * getHours/getMinutes liefern anschließend die lokale
+         * Zeit entsprechend der Zeitzone des Browsers.
+         */
+        if(
+            /[Tt]/.test(text)||
+            /[Zz]$/.test(text)||
+            /[+-][0-2][0-9]:?[0-5][0-9]$/.test(text)
+        ){
+            date=new Date(text);
+
+            if(!isNaN(date.getTime())){
+                return twoDigits(date.getHours())+':'+
+                    twoDigits(date.getMinutes());
+            }
+        }
+
+        /*
+         * Reine Uhrzeit ohne Zeitzoneninformation.
+         * Hier ist keine sichere Umrechnung möglich.
+         */
+        match=text.match(
+            /^([0-2][0-9]):([0-5][0-9])(?::[0-5][0-9])?$/
+        );
+
+        if(match){
+            return match[1]+':'+match[2];
+        }
+
+        /*
+         * Andere vom Browser verstandene Datumsformate.
+         */
+        date=new Date(text);
+
+        if(!isNaN(date.getTime())){
+            return twoDigits(date.getHours())+':'+
+                twoDigits(date.getMinutes());
+        }
     }
 
     return null;
@@ -265,11 +290,34 @@ function getAvnavTime(data){
         'timestamp',
         'time'
     ];
+    var serverTime;
+    var match;
     var i;
     var value;
     var formatted;
     var now;
 
+    /*
+     * Die Serverzeit ist bereits in die lokale Zeitzone des
+     * AVNav-Servers umgerechnet. Deshalb HH:MM direkt aus dem
+     * ISO-Text lesen und nicht erneut durch die Zeitzone des
+     * Anzeigegeraetes umrechnen.
+     */
+    serverTime=L.get(data,'__legacyServerTime.localTime');
+
+    if(typeof serverTime==='string'){
+        match=serverTime.match(
+            /T([0-2][0-9]):([0-5][0-9])/
+        );
+
+        if(match){
+            return match[1]+':'+match[2];
+        }
+    }
+
+    /*
+     * Fallback auf GPS-/AVNav-Zeit.
+     */
     for(i=0;i<paths.length;i++){
         value=L.get(data,paths[i]);
         formatted=formatClockValue(value);
@@ -280,7 +328,7 @@ function getAvnavTime(data){
     }
 
     /*
-     * Fallback: Uhrzeit des Anzeigegerätes.
+     * Letzter Fallback: Uhrzeit des Anzeigegeraetes.
      */
     now=new Date();
 

@@ -1,14 +1,51 @@
 (function(w){'use strict';
 var L=w.LegacyDisplay=w.LegacyDisplay||{};
-L.VERSION='0.4.2';
-L.API_NEW='/api/decoder/gpsV2';L.API_OLD='/viewer/avnav_navi.php?request=gps';L.dataApi=null;
+L.VERSION='0.5.0';
+L.API_NEW='/api/decoder/gpsV2';L.API_OLD='/viewer/avnav_navi.php?request=gps';L.API_SERVER_TIME='/plugins/user-legacy-display/api/time';L.dataApi=null;
 L.now=function(){return new Date().getTime();};
 L.xhr=function(method,url,body,cb){var x=new XMLHttpRequest();x.onreadystatechange=function(){if(x.readyState===4)cb(x.status,x.responseText);};x.onerror=function(){cb(0,'');};x.ontimeout=function(){cb(0,'');};x.open(method,url,true);x.timeout=3000;if(method==='POST')x.setRequestHeader('Content-Type','application/x-www-form-urlencoded');x.send(body||null);};
 L.parse=function(text){try{return JSON.parse(text);}catch(e){return null;}};
 L.normalize=function(obj){if(obj&&obj.status==='OK'&&obj.data)return obj.data;return obj;};
-L.loadData=function(cb){function done(status,text,url){var p=L.parse(text);if(status===200&&p){p=L.normalize(p);if(p&&typeof p==='object'){L.dataApi=url;cb(null,p,url);return;}}cb('failed');}
-if(L.dataApi){L.xhr('GET',L.dataApi+(L.dataApi.indexOf('?')>=0?'&':'?')+'_='+L.now(),null,function(s,t){done(s,t,L.dataApi);});return;}
-L.xhr('GET',L.API_NEW+'?_='+L.now(),null,function(s,t){var p=L.parse(t);if(s===200&&p&&p.status==='OK'&&p.data){L.dataApi=L.API_NEW;cb(null,p.data,L.API_NEW);return;}L.xhr('GET',L.API_OLD+'&_='+L.now(),null,function(s2,t2){done(s2,t2,L.API_OLD);});});};
+L.loadData=function(cb){
+function withServerTime(data,url){
+L.xhr('GET',L.API_SERVER_TIME+'?_='+L.now(),null,function(status,text){
+var value=L.parse(text);
+if(status===200&&value&&value.status==='OK'){
+data.__legacyServerTime=value;
+}
+cb(null,data,url);
+});
+}
+function done(status,text,url){
+var p=L.parse(text);
+if(status===200&&p){
+p=L.normalize(p);
+if(p&&typeof p==='object'){
+L.dataApi=url;
+withServerTime(p,url);
+return;
+}
+}
+cb('failed');
+}
+if(L.dataApi){
+L.xhr('GET',L.dataApi+(L.dataApi.indexOf('?')>=0?'&':'?')+'_='+L.now(),null,function(s,t){
+done(s,t,L.dataApi);
+});
+return;
+}
+L.xhr('GET',L.API_NEW+'?_='+L.now(),null,function(s,t){
+var p=L.parse(t);
+if(s===200&&p&&p.status==='OK'&&p.data){
+L.dataApi=L.API_NEW;
+withServerTime(p.data,L.API_NEW);
+return;
+}
+L.xhr('GET',L.API_OLD+'&_='+L.now(),null,function(s2,t2){
+done(s2,t2,L.API_OLD);
+});
+});
+};
 L.get=function(o,path){var aliases={waterTemp:['transducers.TempWater','transducers.WaterTemperature','waterTemperature','signalk.environment.water.temperature'],dbk:['depthBelowKeel','signalk.environment.depth.belowKeel','depth','waterDepth','depthBelowTransducer','depthBelowSurface','transducers.Depth','transducers.depth','transducers.WaterDepth','signalk.environment.depth.belowTransducer','signalk.environment.depth.belowSurface'],depth:['depth','waterDepth','depthBelowKeel','depthBelowTransducer','depthBelowSurface','transducers.Depth','transducers.depth','transducers.WaterDepth','signalk.environment.depth.belowKeel','signalk.environment.depth.belowTransducer','signalk.environment.depth.belowSurface']};var ps,i,j,c,parts,v;if(path==='sog'){v=L.get(o,'signalk.navigation.speedOverGround');if(v!==null&&!isNaN(Number(v)))return Number(v)*1.943844;v=L.get(o,'speedOverGround');if(v!==null&&!isNaN(Number(v))){if(L.dataApi===L.API_NEW)return Number(v)*1.943844;return Number(v);}v=L.get(o,'speed');if(v!==null&&!isNaN(Number(v))){if(L.dataApi===L.API_NEW)return Number(v)*1.943844;return Number(v);}return null;}ps=aliases[path]||[path];for(i=0;i<ps.length;i++){parts=ps[i].split('.');c=o;for(j=0;j<parts.length;j++){if(c===null||typeof c!=='object'||typeof c[parts[j]]==='undefined'){c=null;break;}c=c[parts[j]];}if(c!==null&&typeof c!=='undefined')return c;}return null;};
 L.collect=function(value,path,result){var k,np,t;if(value===null||typeof value==='string'||typeof value==='number'||typeof value==='boolean'){if(path)result[path]={path:path,type:value===null?'null':typeof value,sample:value};return;}if(Object.prototype.toString.call(value)==='[object Array]')return;for(k in value)if(Object.prototype.hasOwnProperty.call(value,k)){np=path?path+'.'+k:k;L.collect(value[k],np,result);}};
 L.nautical=function(v,pos,neg,digits){var h=v>=0?pos:neg,a=Math.abs(v),d=Math.floor(a),m=(a-d)*60,mi=Math.floor(m),mf=Math.round((m-mi)*1000);if(mf===1000){mf=0;mi++;}if(mi===60){mi=0;d++;}return ('000'+d).slice(-digits)+'°'+('0'+mi).slice(-2)+'.'+('000'+mf).slice(-3)+"'"+h;};

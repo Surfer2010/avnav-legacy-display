@@ -1,9 +1,10 @@
+import datetime
 import json
 import os
 import time
 
 class Plugin(object):
-    VERSION = '0.4.4'
+    VERSION = '0.5.0'
 
     @classmethod
     def pluginInfo(cls):
@@ -105,6 +106,21 @@ class Plugin(object):
         name = str(url).strip('/')
         if name == 'capabilities':
             return {'status':'OK','storage':'server','features':{'serverConfig':True,'valueHistory':True,'profiles':False},'version':self.VERSION}
+        if name == 'time':
+            now = datetime.datetime.now().astimezone()
+            offset = now.utcoffset()
+            offset_minutes = (
+                int(offset.total_seconds() // 60)
+                if offset is not None
+                else 0
+            )
+            return {
+                'status': 'OK',
+                'localTime': now.isoformat(),
+                'offsetMinutes': offset_minutes,
+                'timezone': str(now.tzinfo or ''),
+                'source': 'avnav-server'
+            }
         if name == 'config': return {'status':'OK','config':self.load_config()}
         if name == 'defaults': return {'status':'OK','config':self.default_config()}
         if name == 'catalog': return {'status':'OK','catalog':self.load_catalog()}
