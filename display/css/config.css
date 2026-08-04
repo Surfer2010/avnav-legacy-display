@@ -61,3 +61,53 @@ html,body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,Helvet
     padding:0;
   }
 }
+
+/* Gemeinsame Seitennavigation, kompatibel mit alten Browsern */
+.config-screen-nav {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-height: 48px;
+    margin: 0 0 12px 0;
+    border-collapse: collapse;
+}
+
+.config-screen-nav a {
+    display: table-cell;
+    height: 48px;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+}
+
+.config-screen-nav a.active {
+    background: #000;
+    color: #fff;
+}
+
+.config-screen-nav .nav-config {
+    width: 10%;
+}
+
+.config-screen-nav .nav-navigation {
+    width: 25%;
+}
+
+.config-screen-nav .nav-anchor {
+    width: 25%;
+}
+
+.config-screen-nav .nav-environment {
+    width: 20%;
+}
+
+.config-screen-nav .nav-system {
+    width: 20%;
+}

@@ -1,4 +1,4 @@
-(function(w){'use strict';var L=w.LegacyDisplay,BASE='../api/',KEY='legacyDisplayConfigV3',CAT='legacyDisplayCatalogV3';
+(function(w){'use strict';var L=w.LegacyDisplay,BASE='../api/',KEY='legacyDisplayConfigV4',CAT='legacyDisplayCatalogV4';
 var S=L.Storage={mode:'local',features:{serverConfig:false,valueHistory:false}};
 function localGet(k,fb){try{var v=localStorage.getItem(k);return v?JSON.parse(v):fb;}catch(e){return fb;}}
 function localSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true;}catch(e){return false;}}

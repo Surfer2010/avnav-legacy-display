@@ -4,6 +4,7 @@
     "anchor": {
       "title": "Ankern",
       "updateInterval": 500,
+      "valueScale": 1.0,
       "items": [
         {
           "id": "depth-main",
@@ -25,38 +26,50 @@
           "unit": "kn",
           "formatter": "number",
           "decimals": 1,
-          "size": "medium",
-          "maxChars": 5,
-          "valueScale": 1.0
-        }
-      ],
-      "valueScale": 1.0
-    },
-    "navigation": {
-      "title": "Navigation",
-      "updateInterval": 1000,
-      "items": [
-        {
-          "id": "speed-nav",
-          "path": "sog",
-          "role": "speed",
-          "label": "SOG",
-          "unit": "kn",
-          "formatter": "number",
-          "decimals": 1,
           "size": "large",
           "maxChars": 5,
           "valueScale": 1.0
         },
         {
-          "id": "course-nav",
-          "path": "track",
+          "id": "wind-anchor",
+          "path": "signalk.environment.wind.speedTrue",
+          "role": "speed",
+          "label": "WIND",
+          "unit": "kn",
+          "formatter": "speedMpsKn",
+          "decimals": 1,
+          "size": "large",
+          "maxChars": 5,
+          "valueScale": 1.0
+        }
+      ]
+    },
+    "navigation": {
+      "title": "Navigation",
+      "updateInterval": 1000,
+      "valueScale": 1.0,
+      "items": [
+        {
+          "id": "bearing-nav",
+          "path": "bearing",
           "role": "course",
-          "label": "KURS",
+          "label": "BEARING",
           "unit": "°",
           "formatter": "course",
           "decimals": 0,
-          "size": "large",
+          "size": "hero",
+          "maxChars": 3,
+          "valueScale": 1.0
+        },
+        {
+          "id": "cog-nav",
+          "path": "track",
+          "role": "course",
+          "label": "COG",
+          "unit": "°",
+          "formatter": "course",
+          "decimals": 0,
+          "size": "hero",
           "maxChars": 3,
           "valueScale": 1.0
         },
@@ -73,19 +86,66 @@
           "valueScale": 1.0
         },
         {
-          "id": "sat-nav",
-          "path": "satUsed",
-          "role": "generic",
-          "label": "SATELLITEN",
-          "unit": "",
+          "id": "wind-direction-nav",
+          "path": "signalk.environment.wind.angleTrueNorth",
+          "role": "course",
+          "label": "WINDRICHTUNG",
+          "unit": "°",
+          "formatter": "directionRad",
+          "decimals": 0,
+          "size": "large",
+          "maxChars": 3,
+          "valueScale": 1.0
+        },
+        {
+          "id": "next-waypoint-distance",
+          "path": "signalk.navigation.course.nextPoint.distance",
+          "role": "distance",
+          "label": "DISTANZ NÄCHSTER WP",
+          "unit": "m",
           "formatter": "number",
           "decimals": 0,
           "size": "medium",
-          "maxChars": 2,
+          "maxChars": 6,
+          "valueScale": 1.0
+        },
+        {
+          "id": "destination-distance",
+          "path": "signalk.navigation.course.greatCircle.nextPoint.distance",
+          "role": "distance",
+          "label": "DISTANZ ZUM ZIEL",
+          "unit": "m",
+          "formatter": "number",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 6,
+          "valueScale": 1.0
+        },
+        {
+          "id": "next-waypoint-time",
+          "path": "signalk.navigation.course.nextPoint.timeToGo",
+          "role": "time",
+          "label": "ZEIT BIS NÄCHSTER WP",
+          "unit": "",
+          "formatter": "text",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 8,
+          "valueScale": 1.0
+        },
+        {
+          "id": "destination-eta",
+          "path": "signalk.navigation.course.nextPoint.arrivalTime",
+          "role": "time",
+          "label": "ETA",
+          "unit": "",
+          "formatter": "text",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 8,
           "valueScale": 1.0
         }
-      ],
-      "valueScale": 1.0
+      ]
     },
     "system": {
       "title": "System",
@@ -165,6 +225,85 @@
         }
       ],
       "valueScale": 1.0
+    },
+    "environment": {
+      "title": "Umwelt",
+      "updateInterval": 1000,
+      "valueScale": 1.0,
+      "items": [
+        {
+          "id": "wind-speed",
+          "path": "signalk.environment.wind.speedTrue",
+          "role": "speed",
+          "label": "WIND",
+          "unit": "kn",
+          "formatter": "speedMpsKn",
+          "decimals": 1,
+          "size": "large",
+          "maxChars": 5,
+          "valueScale": 1.0
+        },
+        {
+          "id": "wind-direction",
+          "path": "signalk.environment.wind.angleTrueNorth",
+          "role": "course",
+          "label": "WINDRICHTUNG",
+          "unit": "°",
+          "formatter": "directionRad",
+          "decimals": 0,
+          "size": "large",
+          "maxChars": 3,
+          "valueScale": 1.0
+        },
+        {
+          "id": "air-temperature",
+          "path": "transducers.TempAir",
+          "role": "temperature",
+          "label": "TEMP. AUSSEN",
+          "unit": "°C",
+          "formatter": "kelvin",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 5,
+          "valueScale": 1.0
+        },
+        {
+          "id": "water-temperature",
+          "path": "waterTemp",
+          "role": "temperature",
+          "label": "TEMP. WASSER",
+          "unit": "°C",
+          "formatter": "kelvin",
+          "decimals": 1,
+          "size": "medium",
+          "maxChars": 5,
+          "valueScale": 1.0
+        },
+        {
+          "id": "local-time",
+          "path": "__localTime",
+          "role": "clock",
+          "label": "UHRZEIT",
+          "unit": "",
+          "formatter": "text",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 5,
+          "valueScale": 1.0
+        },
+        {
+          "id": "air-pressure",
+          "path": "transducers.Barometer",
+          "role": "pressure",
+          "label": "LUFTDRUCK",
+          "unit": "hPa",
+          "formatter": "pascalHpa",
+          "decimals": 0,
+          "size": "medium",
+          "maxChars": 4,
+          "valueScale": 1.0
+        }
+      ]
     }
   },
   "catalog": {}

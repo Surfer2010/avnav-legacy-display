@@ -1,1 +1,89 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Ankern</title><link rel="stylesheet" href="css/display.css"></head><body data-page="anchor"><main class="page"><header class="topbar"><span>ANKERN</span><a href="index.html">MENÜ</a></header><section id="dashboard" class="dashboard"></section><footer id="connection-state" class="status">VERBINDUNG WIRD HERGESTELLT</footer></main><script src="js/core.js"></script><script src="js/storage.js"></script><script src="js/dashboard.js"></script></body></html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+ content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>Anker</title>
+<link rel="stylesheet" href="css/display.css?v=1785844193">
+</head>
+<body data-page="anchor">
+<div class="page">
+
+<nav class="screen-nav">
+<a class="nav-config " href="config.html">Config</a>
+<a class="nav-navigation " href="navigation.html">Navigation</a>
+<a class="nav-anchor active" href="anchor.html">Anker</a>
+<a class="nav-environment " href="environment.html">Umwelt</a>
+<a class="nav-system " href="system.html">System</a>
+</nav>
+
+<div id="dashboard" class="dashboard anchor-dashboard-static">
+<table class="anchor-table" cellspacing="0" cellpadding="0">
+<tr class="anchor-depth-row">
+<td colspan="2">
+<div class="tile hero" data-id="depth-main">
+<div class="header">
+<span class="label">DBK</span>
+<span class="unit">m</span>
+</div>
+<div class="value"
+ data-path="dbk"
+ data-role="depth"
+ data-formatter="depthAdaptive"
+ data-decimals="1"
+ data-max-chars="5"
+ data-size="hero"
+ data-value-scale="1">--,-</div>
+</div>
+</td>
+</tr>
+
+<tr class="anchor-lower-row">
+<td>
+<div class="tile large" data-id="speed-anchor">
+<div class="header">
+<span class="label">SOG</span>
+<span class="unit">kn</span>
+</div>
+<div class="value"
+ data-path="sog"
+ data-role="speed"
+ data-formatter="number"
+ data-decimals="1"
+ data-max-chars="5"
+ data-size="large"
+ data-value-scale="1">--,-</div>
+</div>
+</td>
+
+<td>
+<div class="tile large" data-id="wind-anchor">
+<div class="header">
+<span class="label">WIND</span>
+<span class="unit">kn</span>
+</div>
+<div class="value"
+ data-path="signalk.environment.wind.speedTrue"
+ data-role="speed"
+ data-formatter="speedMpsKn"
+ data-decimals="1"
+ data-max-chars="5"
+ data-size="large"
+ data-value-scale="1">--,-</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+<div id="connection-state" class="status">
+VERBINDUNG WIRD HERGESTELLT
+</div>
+
+</div>
+<script src="js/core.js?v=1785843956"></script>
+<script src="js/storage.js?v=1785843956"></script>
+<script src="js/dashboard.js?v=1785844193"></script>
+</body>
+</html>

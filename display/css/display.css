@@ -1,4 +1,400 @@
-html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif}
-*{box-sizing:border-box}.page{height:100%;display:flex;flex-direction:column}.topbar{height:10%;min-height:44px;border-bottom:3px solid #000;display:flex;align-items:center;justify-content:space-between;padding:0 2%;font-weight:bold}.topbar a{color:#000;text-decoration:none;border:2px solid #000;padding:6px 10px}.dashboard{height:82%;display:flex;flex-wrap:wrap;align-content:stretch;padding:1%}.tile{border:3px solid #000;margin:.5%;display:flex;flex-direction:column;min-width:31%;flex:1 1 31%}.tile.hero{flex-basis:98%;}.tile.large{flex-basis:48%}.tile.small{flex-basis:23%}.header{height:24%;min-height:34px;border-bottom:2px solid #000;display:flex;align-items:center;justify-content:space-between;padding:0 3%;font-weight:bold}.value{height:76%;display:flex;align-items:center;justify-content:center;font-weight:bold;white-space:nowrap;line-height:1}.status{height:8%;min-height:32px;border-top:3px solid #000;display:flex;align-items:center;justify-content:center;font-weight:bold}.is-offline .status,.warning .status{background:#000;color:#fff}.menu{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:stretch;width:100%;max-width:900px;margin:0 auto;padding:24px}.menu a{display:flex;align-items:center;justify-content:center;color:#000;text-decoration:none;border:3px solid #000;min-height:96px;margin:0 0 22px 0;padding:16px 20px;text-align:center;font-size:36px;line-height:1.1;font-weight:bold}.note{text-align:center;font-size:18px;margin:0}@media screen and (max-width:700px){.menu{padding:14px}.menu a{min-height:90px;margin-bottom:16px;padding:12px;font-size:30px}.note{font-size:16px}}@media screen and (max-width:500px){.menu a{min-height:96px;font-size:28px}}.hidden{display:none!important}
-.brand{text-align:center;padding:14px 16px 0 16px}
-.brand img{display:block;width:180px;max-width:38vw;height:auto;margin:0 auto}
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.page {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/*
+ * Oberste Menüzeile:
+ * Config 10 %
+ * Navigation 25 %
+ * Anker 25 %
+ * Umwelt 20 %
+ * System 20 %
+ */
+.screen-nav {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 10%;
+    min-height: 44px;
+    border-collapse: collapse;
+}
+
+.screen-nav a {
+    display: table-cell;
+    height: 100%;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 2px;
+    line-height: 1;
+}
+
+.screen-nav a.active {
+    background: #000;
+    color: #fff;
+}
+
+.screen-nav .nav-config {
+    width: 10%;
+}
+
+.screen-nav .nav-navigation {
+    width: 25%;
+}
+
+.screen-nav .nav-anchor {
+    width: 25%;
+}
+
+.screen-nav .nav-environment {
+    width: 20%;
+}
+
+.screen-nav .nav-system {
+    width: 20%;
+}
+
+.dashboard {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    height: 82%;
+    border-collapse: collapse;
+}
+
+.tile {
+    display: table-cell;
+    position: relative;
+    border: 2px solid #000;
+    vertical-align: middle;
+    text-align: center;
+    overflow: hidden;
+}
+
+.header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 25%;
+    border-bottom: 2px solid #000;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.header .label {
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.header .unit {
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.value {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    width: 100%;
+    height: 75%;
+    font-weight: bold;
+    white-space: nowrap;
+    line-height: 1;
+    overflow: hidden;
+    text-align: center;
+}
+
+.value:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.status {
+    display: table;
+    width: 100%;
+    height: 8%;
+    min-height: 32px;
+    border-top: 3px solid #000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.status:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.is-offline .status,
+.warning .status {
+    background: #000;
+    color: #fff;
+}
+
+/*
+ * Navigation:
+ * Menü 10 %
+ * Zeile 1 30 %
+ * Zeile 2 24 %
+ * Zeile 3 18 %
+ * Zeile 4 18 %
+ *
+ * Dashboard selbst belegt 82 %.
+ * Darin werden die relativen Zeilenhöhen so umgerechnet,
+ * dass das Gesamtlayout einschließlich Status vollständig passt.
+ */
+body[data-page="navigation"] .dashboard {
+    display: table;
+}
+
+body[data-page="navigation"] .dashboard-row {
+    display: table-row;
+}
+
+body[data-page="navigation"] .dashboard-row.row-1 {
+    height: 36.59%;
+}
+
+body[data-page="navigation"] .dashboard-row.row-2 {
+    height: 29.27%;
+}
+
+body[data-page="navigation"] .dashboard-row.row-3 {
+    height: 21.95%;
+}
+
+body[data-page="navigation"] .dashboard-row.row-4 {
+    height: 21.95%;
+}
+
+body[data-page="navigation"] .dashboard-row .tile {
+    width: 50%;
+}
+
+/* Übrige Dashboards als einfache Tabellenmatrix */
+body[data-page="anchor"] .dashboard-row,
+body[data-page="environment"] .dashboard-row,
+body[data-page="system"] .dashboard-row {
+    display: table-row;
+}
+
+body[data-page="anchor"] .dashboard-row .tile,
+body[data-page="environment"] .dashboard-row .tile,
+body[data-page="system"] .dashboard-row .tile {
+    width: 50%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media screen and (max-width: 620px) {
+    .screen-nav a {
+        font-size: 13px;
+    }
+
+    .header {
+        font-size: 13px;
+    }
+
+    .status {
+        font-size: 13px;
+    }
+}
+
+
+/*
+ * Ankerseite:
+ * obere Zeile große Tiefe
+ * untere Zeile SOG und Wind mit je 50 %
+ */
+body[data-page="anchor"] .dashboard-row.row-1 {
+    display: table-row;
+    height: 65%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 {
+    display: table-row;
+    height: 35%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-1 .tile {
+    width: 100%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 .tile {
+    width: 50%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-1 .header {
+    height: 20%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-1 .value {
+    top: 20%;
+    height: 80%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 .header {
+    height: 30%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 .value {
+    top: 30%;
+    height: 70%;
+}
+
+
+/*
+ * Umweltseite:
+ * Wind             | Windrichtung
+ * Außentemperatur  | Wassertemperatur
+ * Uhrzeit          | Luftdruck
+ */
+body[data-page="environment"] .dashboard-row {
+    display: table-row;
+    height: 33.333%;
+}
+
+body[data-page="environment"] .dashboard-row .tile {
+    width: 50%;
+}
+
+body[data-page="environment"] .header {
+    height: 28%;
+}
+
+body[data-page="environment"] .value {
+    top: 28%;
+    height: 72%;
+}
+
+
+/* Korrektur Ankerseite: eine große und zwei halbe Kacheln */
+body[data-page="anchor"] .dashboard {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-1 {
+    display: table-row;
+    height: 65%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 {
+    display: table-row;
+    height: 35%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-1 .tile {
+    display: table-cell;
+    width: 100%;
+}
+
+body[data-page="anchor"] .dashboard-row.row-2 .tile {
+    display: table-cell;
+    width: 50%;
+}
+
+
+/*
+ * Ankerseite mit echter HTML-Tabelle.
+ * Vermeidet fehlerhafte table-row/table-cell-Nachbildung
+ * auf alten Android-Browsern.
+ */
+body[data-page="anchor"] .dashboard {
+    display: block;
+    width: 100%;
+    height: 82%;
+    padding: 0;
+}
+
+body[data-page="anchor"] .anchor-table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+body[data-page="anchor"] .anchor-table td {
+    position: relative;
+    padding: 0;
+    border: 2px solid #000;
+    vertical-align: top;
+    overflow: hidden;
+}
+
+body[data-page="anchor"] .anchor-depth-row {
+    height: 65%;
+}
+
+body[data-page="anchor"] .anchor-lower-row {
+    height: 35%;
+}
+
+body[data-page="anchor"] .anchor-lower-row td {
+    width: 50%;
+}
+
+body[data-page="anchor"] .anchor-table .tile {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    margin: 0;
+    border: 0;
+}
+
+body[data-page="anchor"] .anchor-depth-row .header {
+    height: 20%;
+}
+
+body[data-page="anchor"] .anchor-depth-row .value {
+    top: 20%;
+    height: 80%;
+}
+
+body[data-page="anchor"] .anchor-lower-row .header {
+    height: 30%;
+}
+
+body[data-page="anchor"] .anchor-lower-row .value {
+    top: 30%;
+    height: 70%;
+}

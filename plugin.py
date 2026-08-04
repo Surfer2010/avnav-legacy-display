@@ -3,7 +3,7 @@ import os
 import time
 
 class Plugin(object):
-    VERSION = '0.4.0'
+    VERSION = '0.4.2'
 
     @classmethod
     def pluginInfo(cls):
@@ -122,7 +122,7 @@ class Plugin(object):
 
     def run(self):
         base_url = self.api.getBaseUrl().rstrip('/')
-        app_url = base_url + '/display/index.html'
+        app_url = base_url + '/display/navigation.html'
         try:
             self.user_app_id = self.api.registerUserApp(app_url,'icon.svg',title=None,preventConnectionLost=True,name='legacy-display',shortText='Display',longText='Legacy Display')
             self.api.setStatus('RUNNING','Startseite: %s' % app_url)
