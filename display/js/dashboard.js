@@ -196,6 +196,98 @@ function scaleAll(){
     }
 }
 
+function twoDigits(value){
+    return value<10?'0'+value:String(value);
+}
+
+function formatClockValue(value){
+    var match;
+    var date;
+    var number;
+
+    if(value===null||typeof value==='undefined'||value===''){
+        return null;
+    }
+
+    /*
+     * Bereits formatierte Zeit, beispielsweise 14:23 oder 14:23:17.
+     */
+    if(typeof value==='string'){
+        match=value.match(/(?:T|^)([0-2][0-9]):([0-5][0-9])(?::[0-5][0-9])?/);
+
+        if(match){
+            return match[1]+':'+match[2];
+        }
+    }
+
+    /*
+     * Unix-Zeit in Sekunden oder Millisekunden.
+     */
+    number=Number(value);
+
+    if(!isNaN(number)&&number>1000000000){
+        if(number<100000000000){
+            number=number*1000;
+        }
+
+        date=new Date(number);
+
+        if(!isNaN(date.getTime())){
+            return twoDigits(date.getHours())+':'+
+                twoDigits(date.getMinutes());
+        }
+    }
+
+    /*
+     * ISO-Datum oder ein anderes von Date verstandenes Zeitformat.
+     */
+    date=new Date(value);
+
+    if(!isNaN(date.getTime())){
+        return twoDigits(date.getHours())+':'+
+            twoDigits(date.getMinutes());
+    }
+
+    return null;
+}
+
+function getAvnavTime(data){
+    var paths=[
+        'signalk.navigation.datetime',
+        'signalk.navigation.gnss.datetime',
+        'navigation.datetime',
+        'gpsTime',
+        'gps.time',
+        'utcTime',
+        'utc',
+        'dateTime',
+        'datetime',
+        'timestamp',
+        'time'
+    ];
+    var i;
+    var value;
+    var formatted;
+    var now;
+
+    for(i=0;i<paths.length;i++){
+        value=L.get(data,paths[i]);
+        formatted=formatClockValue(value);
+
+        if(formatted!==null){
+            return formatted;
+        }
+    }
+
+    /*
+     * Fallback: Uhrzeit des Anzeigegerätes.
+     */
+    now=new Date();
+
+    return twoDigits(now.getHours())+':'+
+        twoDigits(now.getMinutes());
+}
+
 function update(data){
     var es=document.getElementsByClassName('value');
     var i;
@@ -210,14 +302,12 @@ function update(data){
         element=es[i];
         path=element.getAttribute('data-path');
         role=element.getAttribute('data-role');
-        if(role==='clock'||path==='__localTime'){
-            var now=new Date();
-            var hours=now.getHours();
-            var minutes=now.getMinutes();
-
-            raw=
-                (hours<10?'0':'')+hours+':'+
-                (minutes<10?'0':'')+minutes;
+        if(
+            role==='clock'||
+            path==='__localTime'||
+            path==='__avnavTime'
+        ){
+            raw=getAvnavTime(data);
         }else{
             raw=L.get(data,path);
         }

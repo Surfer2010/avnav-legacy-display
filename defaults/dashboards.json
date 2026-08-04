@@ -281,7 +281,7 @@
         },
         {
           "id": "local-time",
-          "path": "__localTime",
+          "path": "__avnavTime",
           "role": "clock",
           "label": "UHRZEIT",
           "unit": "",
