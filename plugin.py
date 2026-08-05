@@ -4,7 +4,7 @@ import os
 import time
 
 class Plugin(object):
-    VERSION = '0.5.0'
+    VERSION = '0.5.1'
 
     @classmethod
     def pluginInfo(cls):
@@ -49,7 +49,7 @@ class Plugin(object):
         dashboards = value.get('dashboards')
         if not isinstance(dashboards, dict):
             raise ValueError('dashboards fehlt')
-        valid_formatters = ('number','text','course','directionRad','angleRad','speedMpsKn','depthAdaptive','kelvin','pascalHpa','percent','latitude','longitude')
+        valid_formatters = ('number','text','course','directionRad','angleRad','speedMpsKn','distanceNm','duration','etaServer','xteMeters','depthAdaptive','kelvin','pascalHpa','percent','latitude','longitude')
         for name, dashboard in dashboards.items():
             if not isinstance(dashboard, dict):
                 raise ValueError('Ungueltiges Dashboard: %s' % name)

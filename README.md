@@ -108,3 +108,15 @@ Chronologische Übersicht aller Änderungen und Neuerungen der einzelnen Version
 
 
 
+
+
+## Version 0.5.1
+
+- Navigation auf BRG, COG, SOG und AWA umgestellt
+- Wegpunktdistanz korrekt von Metern in Seemeilen formatiert
+- verbleibende Wegpunktzeit als HH:MM formatiert
+- ETA-Formatter mit AVNav-Serverzeitzone ergänzt
+- neue Formatter in der serverseitigen Validierung freigegeben
+- Navigationspfade auf `course.calcValues` aktualisiert
+- Kompatibilität mit Android 4.4 und E-Ink-Browsern beibehalten
+
