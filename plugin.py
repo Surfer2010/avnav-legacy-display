@@ -4,7 +4,7 @@ import os
 import time
 
 class Plugin(object):
-    VERSION = '0.5.1'
+    VERSION = '0.6.0'
 
     @classmethod
     def pluginInfo(cls):

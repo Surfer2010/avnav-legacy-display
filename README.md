@@ -120,3 +120,13 @@ Chronologische Übersicht aller Änderungen und Neuerungen der einzelnen Version
 - Navigationspfade auf `course.calcValues` aktualisiert
 - Kompatibilität mit Android 4.4 und E-Ink-Browsern beibehalten
 
+## Version 0.6.0
+
+- Navigationslayout für Legacy- und E-Ink-Displays überarbeitet
+- Tiefe anstelle der Windanzeige im Navigationsdashboard
+- Schriftgrößen der vier Navigationszeilen angepasst
+- Zeile 1 kompakter dargestellt
+- Zeilen 3 und 4 gleich groß und vergrößert
+- Überschriften an die Darstellung der unteren Datenzeilen angepasst
+- BRG, COG, SOG und Navigationswerte für alte Browser optimiert
+- weiterhin auf Android 4.4 und Schwarz-Weiß-E-Ink ausgelegt

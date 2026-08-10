@@ -59,7 +59,7 @@
           "decimals": 0,
           "size": "hero",
           "maxChars": 3,
-          "valueScale": 1.0
+          "valueScale": 0.8
         },
         {
           "id": "cog-nav",
@@ -71,7 +71,7 @@
           "decimals": 0,
           "size": "hero",
           "maxChars": 3,
-          "valueScale": 1.0
+          "valueScale": 0.8
         },
         {
           "id": "sog-nav",
@@ -86,15 +86,15 @@
           "valueScale": 1.0
         },
         {
-          "id": "awa-nav",
-          "path": "signalk.environment.wind.angleApparent",
-          "role": "course",
-          "label": "AWA",
-          "unit": "°",
-          "formatter": "directionRad",
-          "decimals": 0,
+          "id": "depth-nav",
+          "path": "dbk",
+          "role": "depth",
+          "label": "TIEFE",
+          "unit": "m",
+          "formatter": "depthAdaptive",
+          "decimals": 1,
           "size": "large",
-          "maxChars": 3,
+          "maxChars": 5,
           "valueScale": 1.0
         },
         {
@@ -107,7 +107,7 @@
           "decimals": 1,
           "size": "medium",
           "maxChars": 6,
-          "valueScale": 1.0
+          "valueScale": 1.05
         },
         {
           "id": "route-distance",
@@ -119,7 +119,7 @@
           "decimals": 1,
           "size": "medium",
           "maxChars": 6,
-          "valueScale": 1.0
+          "valueScale": 1.05
         },
         {
           "id": "next-waypoint-time",
@@ -131,7 +131,7 @@
           "decimals": 0,
           "size": "medium",
           "maxChars": 8,
-          "valueScale": 1.0
+          "valueScale": 1.05
         },
         {
           "id": "route-time",
@@ -143,7 +143,7 @@
           "decimals": 0,
           "size": "medium",
           "maxChars": 8,
-          "valueScale": 1.0
+          "valueScale": 1.05
         }
       ]
     },

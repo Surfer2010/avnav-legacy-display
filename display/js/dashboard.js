@@ -194,6 +194,41 @@ function scaleAll(){
             es[i].getAttribute('data-size')
         );
     }
+
+    /*
+     * Navigation:
+     * Alle Feldueberschriften bekommen dieselbe Schriftgroesse
+     * wie die Werte der dritten Datenzeile.
+     *
+     * Bewusst ohne moderne JS-Syntax fuer Android 4.4.
+     */
+    if(document.body.getAttribute('data-page')==='navigation'){
+        var rows=document.getElementsByClassName('dashboard-row');
+        var headers;
+        var referenceValues;
+        var referenceSize;
+        var h;
+
+        if(rows.length>=3){
+            referenceValues=
+                rows[2].getElementsByClassName('value');
+
+            if(referenceValues.length>0){
+                referenceSize=
+                    parseInt(referenceValues[0].style.fontSize,10);
+
+                if(referenceSize>0){
+                    headers=
+                        document.getElementsByClassName('header');
+
+                    for(h=0;h<headers.length;h++){
+                        headers[h].style.fontSize=
+                            referenceSize+'px';
+                    }
+                }
+            }
+        }
+    }
 }
 
 function twoDigits(value){

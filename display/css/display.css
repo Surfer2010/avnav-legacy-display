@@ -398,3 +398,28 @@ body[data-page="anchor"] .anchor-lower-row .value {
     top: 30%;
     height: 70%;
 }
+
+
+/*
+ * Legacy Navigation Issues #1-#3
+ *
+ * - Zeile 1 kompakter
+ * - Zeilen 3 und 4 gleich gewichtet
+ * - Ueberschriften werden in dashboard.js dynamisch
+ *   an die Schriftgroesse von Datenzeile 3 gekoppelt.
+ *
+ * Keine CSS-Grid-/Flex-Abhaengigkeit fuer alte Android-Browser.
+ */
+body[data-page="navigation"] .dashboard-row.row-1 .tile {
+    vertical-align: middle;
+}
+
+body[data-page="navigation"] .dashboard-row.row-3 .tile,
+body[data-page="navigation"] .dashboard-row.row-4 .tile {
+    vertical-align: middle;
+}
+
+body[data-page="navigation"] .header {
+    line-height: 1.0;
+    overflow: hidden;
+}
