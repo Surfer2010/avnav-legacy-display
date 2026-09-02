@@ -33,8 +33,8 @@ body {
     display: table;
     table-layout: fixed;
     width: 100%;
-    height: 10%;
-    min-height: 44px;
+    height: 5%;
+    min-height: 0;
     border-collapse: collapse;
 }
 
@@ -83,7 +83,7 @@ body {
     display: table;
     table-layout: fixed;
     width: 100%;
-    height: 82%;
+    height: 87%;
     border-collapse: collapse;
 }
 
@@ -177,33 +177,19 @@ body {
  * Darin werden die relativen Zeilenhöhen so umgerechnet,
  * dass das Gesamtlayout einschließlich Status vollständig passt.
  */
-body[data-page="navigation"] .dashboard {
-    display: table;
-}
 
-body[data-page="navigation"] .dashboard-row {
-    display: table-row;
-}
 
-body[data-page="navigation"] .dashboard-row.row-1 {
-    height: 36.59%;
-}
 
-body[data-page="navigation"] .dashboard-row.row-2 {
-    height: 29.27%;
-}
 
-body[data-page="navigation"] .dashboard-row.row-3 {
-    height: 21.95%;
-}
 
-body[data-page="navigation"] .dashboard-row.row-4 {
-    height: 21.95%;
-}
 
-body[data-page="navigation"] .dashboard-row .tile {
-    width: 50%;
-}
+
+
+
+
+
+
+
 
 /* Übrige Dashboards als einfache Tabellenmatrix */
 body[data-page="anchor"] .dashboard-row,
@@ -410,16 +396,631 @@ body[data-page="anchor"] .anchor-lower-row .value {
  *
  * Keine CSS-Grid-/Flex-Abhaengigkeit fuer alte Android-Browser.
  */
-body[data-page="navigation"] .dashboard-row.row-1 .tile {
-    vertical-align: middle;
+
+
+
+
+
+
+/*
+ * Navigation kompakt:
+ * Menü nur 5 % hoch.
+ * Beschriftung nutzt die komplette verfügbare Höhe.
+ */
+
+
+
+
+/*
+ * Navigation erhält den durch das kleinere Menü
+ * frei gewordenen Platz.
+ */
+
+
+/*
+ * Navigation Feintuning 2026-08-10
+ * - Zeile 1 etwas kompakter
+ * - weniger vertikales Spacing
+ * - Zeile 3/4 besser lesbar
+ * - Ueberschriften zentriert
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ * Navigation final clean layout
+ *
+ * 5 % Hauptnavigation
+ * 87 % Datenbereich
+ * 8 % Statusbereich
+ *
+ * Zeile 1 wird gegenueber dem bisherigen guten Stand
+ * etwa 10 % kompakter. Freiwerdender Platz geht
+ * insbesondere an Zeile 4.
+ */
+
+
+
+
+
+
+
+/*
+ * Summe exakt 100 % des Dashboardbereiches.
+ */
+
+
+
+
+
+
+
+
+/*
+ * Kopfbereich:
+ * Beschriftung wirklich zentriert.
+ *
+ * Das HTML verwendet:
+ *   .label
+ *   .unit
+ *
+ * Die Einheit steht unabhaengig davon ganz rechts.
+ */
+
+
+
+
+
+
+/*
+ * Zwischen Beschriftung und Zahl bleibt etwas Luft.
+ * Der Wert bekommt aber fast den gesamten Rest des Feldes.
+ */
+
+
+/*
+ * Untere beiden Zeilen:
+ * etwas hoeherer Kopfbereich fuer die laengeren Texte.
+ */
+
+/* ============================================================
+ * NAVIGATION V2
+ *
+ * Android-4.4-kompatibles Tabellenlayout.
+ *
+ * 2 Spalten / 16 Hoeheneinheiten:
+ *
+ * 1  BRG / COG
+ * 4  Werte BRG / COG
+ * 1  SOG / TIEFE
+ * 3  Werte SOG / TIEFE
+ * 1  ZUM WEGPUNKT / ZUM ZIEL
+ * 3  Distanzwerte
+ * 3  Zeitwerte
+ *
+ * Keine horizontalen Abstaende.
+ * Kein CSS Grid.
+ * Kein Flexbox-Zwang.
+ * ============================================================ */
+
+body[data-page="navigation"] .screen-nav {
+    height: 5%;
+    min-height: 0;
 }
 
-body[data-page="navigation"] .dashboard-row.row-3 .tile,
-body[data-page="navigation"] .dashboard-row.row-4 .tile {
+body[data-page="navigation"] .screen-nav a {
+    height: 100%;
+    padding: 0 2px;
+    line-height: 1;
     vertical-align: middle;
+    font-size: 16px;
 }
 
-body[data-page="navigation"] .header {
-    line-height: 1.0;
+body[data-page="navigation"] .dashboard {
+    display: block;
+    width: 100%;
+    height: 87%;
+    padding: 0;
+    margin: 0;
+}
+
+body[data-page="navigation"] .navigation-table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body[data-page="navigation"] .navigation-table tr {
+    padding: 0;
+    margin: 0;
+}
+
+body[data-page="navigation"] .navigation-table td {
+    position: relative;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    border: 2px solid #000;
+    text-align: center;
+    vertical-align: middle;
     overflow: hidden;
+}
+
+/*
+ * Exakte Verteilung der 16 Hoeheneinheiten.
+ */
+
+body[data-page="navigation"] .nav-head-brg {
+    height: 6.25%;
+}
+
+body[data-page="navigation"] .nav-value-brg {
+    height: 25%;
+}
+
+body[data-page="navigation"] .nav-head-sog {
+    height: 6.25%;
+}
+
+body[data-page="navigation"] .nav-value-sog {
+    height: 18.75%;
+}
+
+body[data-page="navigation"] .nav-head-target {
+    height: 6.25%;
+}
+
+body[data-page="navigation"] .nav-value-distance {
+    height: 18.75%;
+}
+
+body[data-page="navigation"] .nav-value-time {
+    height: 18.75%;
+}
+
+/*
+ * Ueberschriften:
+ * exakt mittig in ihrer Spalte.
+ */
+
+body[data-page="navigation"] .nav-head-cell {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+body[data-page="navigation"] .nav-head-label {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/*
+ * Werte:
+ * Zahl nutzt immer die komplette Spaltenbreite zur Zentrierung.
+ * Damit verschiebt die Einheit die Zahl NICHT.
+ */
+
+body[data-page="navigation"] .navigation-table .value {
+    position: static;
+    left: auto;
+    top: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+/*
+ * BRG / COG / SOG / TIEFE:
+ * Einheit separat ganz rechts.
+ */
+
+body[data-page="navigation"] .nav-side-unit {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*
+ * Distanz und Zeit:
+ * Wert und Einheit bilden gemeinsam den zentrierten Text,
+ * z.B. "3,4 nm" oder "00:10 h".
+ */
+
+body[data-page="navigation"] .nav-inline-value {
+    text-align: center;
+}
+
+
+
+/* ============================================================
+ * MOTOR - finale Typografie
+ * ============================================================ */
+
+/*
+ * Alle Ueberschriften absolut 18 px.
+ */
+body[data-page="navigation"] .nav-head-cell {
+    font-size: 18px;
+}
+
+/*
+ * Einheiten immer ca. 70 % der jeweiligen Zahlengroesse.
+ * Die konkrete px-Groesse wird fuer Wertzeilen durch JS gesetzt.
+ */
+body[data-page="navigation"] .nav-side-unit,
+body[data-page="navigation"] .nav-inline-unit {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/*
+ * Inline-Wert mit separat skalierter Einheit.
+ */
+body[data-page="navigation"] .nav-inline-wrap {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+body[data-page="navigation"] .nav-inline-number {
+    display: inline;
+}
+
+body[data-page="navigation"] .nav-inline-unit {
+    display: inline;
+    margin-left: 0.18em;
+}
+
+/*
+ * Legacy Display Hauptnavigation V2
+ * Config | Motor | Anker | Segeln | Baden
+ */
+.screen-nav .nav-config {
+    width: 10%;
+}
+
+.screen-nav .nav-motor,
+.screen-nav .nav-anchor,
+.screen-nav .nav-sailing,
+.screen-nav .nav-baden {
+    width: 22.5%;
+}
+
+
+/* ============================================================
+ * SEGELN V2
+ * ============================================================ */
+
+body[data-page="sailing"] .screen-nav {
+    height: 5%;
+    min-height: 0;
+}
+
+body[data-page="sailing"] .screen-nav a {
+    height: 100%;
+    padding: 0 2px;
+    vertical-align: middle;
+    line-height: 1;
+    font-size: 16px;
+}
+
+body[data-page="sailing"] .dashboard {
+    display: block;
+    width: 100%;
+    height: 87%;
+    padding: 0;
+    margin: 0;
+}
+
+body[data-page="sailing"] .navigation-table {
+    width: 100%;
+    height: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body[data-page="sailing"] .navigation-table td {
+    position: relative;
+    width: 50%;
+    padding: 0;
+    margin: 0;
+    border: 2px solid #000;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+/*
+ * Gleiche 16er-Aufteilung wie vereinbart.
+ */
+body[data-page="sailing"] .nav-head-brg {
+    height: 6.25%;
+}
+
+body[data-page="sailing"] .nav-value-brg {
+    height: 25%;
+}
+
+body[data-page="sailing"] .nav-head-sog {
+    height: 6.25%;
+}
+
+body[data-page="sailing"] .nav-value-sog {
+    height: 18.75%;
+}
+
+body[data-page="sailing"] .nav-head-target {
+    height: 6.25%;
+}
+
+body[data-page="sailing"] .nav-value-distance {
+    height: 18.75%;
+}
+
+body[data-page="sailing"] .nav-wind-row {
+    height: 18.75%;
+}
+
+/*
+ * Ueberschriften 20 px wie vereinbart.
+ */
+body[data-page="sailing"] .nav-head-cell {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+body[data-page="sailing"] .nav-head-label {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/*
+ * Werte wie Motor.
+ */
+body[data-page="sailing"] .navigation-table .value {
+    position: static;
+    left: auto;
+    top: auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+body[data-page="sailing"] .nav-side-unit {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+/* ============================================================
+ * FLACHES WINDINSTRUMENT
+ * ============================================================ */
+
+body[data-page="sailing"] .wind-instrument-cell {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+body[data-page="sailing"] .wind-instrument {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*
+ * Breites, flaches Instrument.
+ * Kein kompletter Kreis.
+ */
+body[data-page="sailing"] .wind-arc {
+    position: absolute;
+    left: 50%;
+    top: 3px;
+    width: 220px;
+    height: 110px;
+    margin-left: -110px;
+    padding: 0;
+
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+    border-right: 3px solid #000;
+
+    border-top-left-radius: 110px;
+    border-top-right-radius: 110px;
+
+    overflow: visible;
+}
+
+/*
+ * Zeiger-Drehpunkt unten in der Mitte.
+ */
+body[data-page="sailing"] .wind-needle {
+    position: absolute;
+    left: 107px;
+    bottom: 0;
+    width: 6px;
+    height: 88px;
+    margin: 0;
+    padding: 0;
+    background: #000;
+
+    transform-origin: 3px 88px;
+}
+
+body[data-page="sailing"] .wind-needle:before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: -4px;
+    width: 0;
+    height: 0;
+
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid #000;
+}
+
+/*
+ * AWA gross in der Mitte.
+ */
+body[data-page="sailing"] .wind-angle-value {
+    position: absolute;
+    left: 55px;
+    top: 43px;
+    width: 110px;
+    height: 38px;
+    line-height: 38px;
+    padding: 0;
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+
+    background: #fff;
+}
+
+/*
+ * Skalenbeschriftungen.
+ */
+body[data-page="sailing"] .wind-mark {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+body[data-page="sailing"] .wind-mark-0 {
+    left: 103px;
+    top: 2px;
+}
+
+body[data-page="sailing"] .wind-mark-l45 {
+    left: 35px;
+    top: 25px;
+}
+
+body[data-page="sailing"] .wind-mark-r45 {
+    right: 35px;
+    top: 25px;
+}
+
+body[data-page="sailing"] .wind-mark-l90 {
+    left: 4px;
+    top: 83px;
+}
+
+body[data-page="sailing"] .wind-mark-r90 {
+    right: 4px;
+    top: 83px;
+}
+
+/*
+ * Zusatzinfos unten.
+ */
+body[data-page="sailing"] .wind-info {
+    position: absolute;
+    bottom: 2px;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+body[data-page="sailing"] .wind-info-left {
+    left: 4px;
+    text-align: left;
+}
+
+body[data-page="sailing"] .wind-info-right {
+    right: 4px;
+    text-align: right;
 }

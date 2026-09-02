@@ -49,7 +49,7 @@ Typische Geräte sind unter anderem:
 
 ---
 
-**Aktuelle Version: 0.4.2**
+**Aktuelle Version: 0.7.0**
 
 ### Highlights
 
@@ -130,3 +130,14 @@ Chronologische Übersicht aller Änderungen und Neuerungen der einzelnen Version
 - Überschriften an die Darstellung der unteren Datenzeilen angepasst
 - BRG, COG, SOG und Navigationswerte für alte Browser optimiert
 - weiterhin auf Android 4.4 und Schwarz-Weiß-E-Ink ausgelegt
+
+## Version 0.7.0
+
+- Live-Stand der aktuellen Legacy-Display-Oberfläche übernommen
+- Hauptnavigation auf `Config | Motor | Anker | Segeln | Baden` umgestellt
+- neue Seite `Segeln` ergänzt
+- Motor-, Anker-, Segeln- und Baden-Seiten entsprechen dem produktiven Live-System
+- Config-Seite an die neuen Dashboard-Namen und die neue Seitenstruktur angepasst
+- System-Seite aus der sichtbaren Config-Navigation entfernt
+- Versionsstand auf 0.7.0 aktualisiert
+

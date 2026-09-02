@@ -62,7 +62,11 @@ html,body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,Helvet
   }
 }
 
-/* Gemeinsame Seitennavigation, kompatibel mit alten Browsern */
+/* ============================================================
+ * CONFIG V2
+ * Config | Motor | Anker | Segeln | Baden
+ * ============================================================ */
+
 .config-screen-nav {
     display: table;
     table-layout: fixed;
@@ -96,18 +100,24 @@ html,body{margin:0;padding:0;background:#fff;color:#000;font-family:Arial,Helvet
     width: 10%;
 }
 
-.config-screen-nav .nav-navigation {
-    width: 25%;
+.config-screen-nav .nav-motor,
+.config-screen-nav .nav-anchor,
+.config-screen-nav .nav-sailing,
+.config-screen-nav .nav-baden {
+    width: 22.5%;
 }
 
-.config-screen-nav .nav-anchor {
-    width: 25%;
+
+/*
+ * Dashboard-Konfiguration
+ */
+
+.dashboard-panel {
+    margin-top: 16px;
 }
 
-.config-screen-nav .nav-environment {
-    width: 20%;
+.dashboard-title h2 {
+    margin: 0;
 }
 
-.config-screen-nav .nav-system {
-    width: 20%;
-}
+
