@@ -49,7 +49,7 @@ Typische Geräte sind unter anderem:
 
 ---
 
-**Aktuelle Version: 0.7.0**
+**Aktuelle Version: 0.7.1**
 
 ### Highlights
 
@@ -130,6 +130,14 @@ Chronologische Übersicht aller Änderungen und Neuerungen der einzelnen Version
 - Überschriften an die Darstellung der unteren Datenzeilen angepasst
 - BRG, COG, SOG und Navigationswerte für alte Browser optimiert
 - weiterhin auf Android 4.4 und Schwarz-Weiß-E-Ink ausgelegt
+
+## Version 0.7.1
+
+- Anker-Dashboard von 500 ms auf 1000 ms Polling umgestellt
+- vermeidet unnötige Abfragen bei einem Tiefengeber mit etwa 1 Hz Datenrate
+- sichtbare Werte werden weiterhin nur bei tatsächlicher Änderung ins DOM geschrieben
+- Windnadel wird nur noch aktualisiert, wenn sich der dargestellte Winkel geändert hat
+- für E-Ink-Displays optimiert, ohne Layoutänderungen
 
 ## Version 0.7.0
 

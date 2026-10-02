@@ -3,7 +3,7 @@
   "dashboards": {
     "anchor": {
       "title": "Ankern",
-      "updateInterval": 500,
+      "updateInterval": 1000,
       "valueScale": 1.0,
       "items": [
         {

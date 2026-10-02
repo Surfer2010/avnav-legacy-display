@@ -1046,7 +1046,11 @@ function updateSailingWindInstrument(data){
 
         displayAngle=Math.round(degrees);
 
-        if(needle){
+        if(
+            needle &&
+            needle.style.transform!==
+                'rotate('+displayAngle+'deg)'
+        ){
             needle.style.transform=
                 'rotate('+displayAngle+'deg)';
         }
