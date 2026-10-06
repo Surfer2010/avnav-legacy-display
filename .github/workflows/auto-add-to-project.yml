@@ -11,5 +11,5 @@ jobs:
       - name: Move issue to project
         uses: actions/add-to-project@v1.0.2
         with:
-          project-url: https://github.com
+          project-url: https://github.com/users/Surfer2010/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECT_PAD }}
